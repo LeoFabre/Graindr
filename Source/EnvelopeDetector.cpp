@@ -1,5 +1,6 @@
 #include "EnvelopeDetector.h"
 
+using namespace juce;
 EnvelopeDetectorOutput EnvelopeDetector::processSample(float x)
 {
     bool onAttack = false;

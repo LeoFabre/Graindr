@@ -1,9 +1,8 @@
 #pragma once
-
-#include <JuceHeader.h>
+#include <juce_audio_processors/juce_audio_processors.h>
 #include "GranularPitchShifter.h"
 #include "PitchShifterContainer.h"
-
+using namespace juce;
 namespace paramID
 {
 #define PARAMETER_ID(str) constexpr const char* str { #str };

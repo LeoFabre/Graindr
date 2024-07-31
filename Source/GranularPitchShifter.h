@@ -1,6 +1,5 @@
 #pragma once
 
-#include <JuceHeader.h>
 #include "Utils.h"
 #include "VASVFilter.h"
 

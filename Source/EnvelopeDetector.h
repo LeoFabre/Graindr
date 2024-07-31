@@ -1,6 +1,7 @@
 #pragma once
-
-#include <JuceHeader.h>
+#include <vector>
+#include <cmath>
+#include <juce_core/juce_core.h>
 
 enum DetectionMode
 {
@@ -36,8 +37,8 @@ public:
     void setParams(DetectionMode _dMode, float attackTime_ms, float releaseTime_ms, bool clamp)
     {
         dMode = _dMode;
-        attackTime = std::expf(expFactor / attackTime_ms);
-        releaseTime = std::expf(expFactor / releaseTime_ms);
+        attackTime = std::exp(expFactor / attackTime_ms);
+        releaseTime = std::exp(expFactor / releaseTime_ms);
         clampToOne = clamp;
     }
     
