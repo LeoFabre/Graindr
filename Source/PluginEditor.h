@@ -20,20 +20,17 @@ private:
     struct RoutingControls : public Component
     {
         explicit RoutingControls(const Graindr_PitchAudioProcessor::ParameterReferences& state)
-            : dryWet(state.dryWet),
-            ps1InBalance(state.ps1InBalance),
-            ps2InBalance(state.ps2InBalance),
-            psBalance(state.psBalance)
+            : dryWet(state.dryWet)
         {
-            addAllAndMakeVisible(*this, dryWet, ps1InBalance, ps2InBalance, psBalance);
+            addAllAndMakeVisible(*this, dryWet);
         }
 
         void resized() override
         {
-            performLayout(getLocalBounds(), dryWet, ps1InBalance, ps2InBalance, psBalance);
+            performLayout(getLocalBounds(), dryWet);
         }
 
-        AttachedSlider dryWet, ps1InBalance, ps2InBalance, psBalance;
+        AttachedSlider dryWet;
     };
     
     struct PitchShifterControls : public Component
@@ -87,8 +84,6 @@ private:
     RoutingControls routingControls { audioProcessor.getParameterValues() };
     
     PitchShifterControls ps1Controls { audioProcessor.getParameterValues().ps1PitchShift, audioProcessor.getParameterValues().ps1FineTune, audioProcessor.getParameterValues().ps1GrainSize, audioProcessor.getParameterValues().ps1Texture, audioProcessor.getParameterValues().ps1Strech, audioProcessor.getParameterValues().ps1Feedback, audioProcessor.getParameterValues().ps1Shimmer, audioProcessor.getParameterValues().ps1ShimmerHiCut, audioProcessor.getParameterValues().ps1PlaybackDir, audioProcessor.getParameterValues().ps1ToneType };
-    
-    PitchShifterControls ps2Controls { audioProcessor.getParameterValues().ps2PitchShift, audioProcessor.getParameterValues().ps2FineTune, audioProcessor.getParameterValues().ps2GrainSize, audioProcessor.getParameterValues().ps2Texture, audioProcessor.getParameterValues().ps2Strech, audioProcessor.getParameterValues().ps2Feedback, audioProcessor.getParameterValues().ps2Shimmer, audioProcessor.getParameterValues().ps2ShimmerHiCut, audioProcessor.getParameterValues().ps2PlaybackDir, audioProcessor.getParameterValues().ps2ToneType };
     
     PitchShifterModControls psModControls { audioProcessor.getParameterValues() };
     

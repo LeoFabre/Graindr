@@ -5,7 +5,7 @@
 Graindr_PitchAudioProcessorEditor::Graindr_PitchAudioProcessorEditor (Graindr_PitchAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
-    addAllAndMakeVisible(*this, routingControls, ps1Controls, ps2Controls, psModControls);
+    addAllAndMakeVisible(*this, routingControls, ps1Controls, psModControls);
     setSize(950, 700);
 }
 
@@ -31,10 +31,7 @@ void Graindr_PitchAudioProcessorEditor::resized()
     
     y = rowHeight + rowhDy;
     ps1Controls.setBounds(getWidth() * 0.05f, y, rowWidth, rowHeight);
-    
-    y += rowHeight + rowhDy;
-    ps2Controls.setBounds(getWidth() * 0.05f, y, rowWidth, rowHeight);
-    
+
     y += rowHeight + rowhDy;
     psModControls.setBounds(getWidth() * 0.05f, y, rowWidth * 0.67f, rowHeight);
 }

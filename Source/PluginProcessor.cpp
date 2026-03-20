@@ -122,11 +122,6 @@ void Graindr_PitchAudioProcessor::processBlock (AudioBuffer<float>& buffer, Midi
         dwMixer.setWetMixProportion(parameters.dryWet.get());
         for (int channel = 0; channel < 2; ++channel)
         {
-            psContainer[channel].setRouting(
-                parameters.ps1InBalance.get(),
-                parameters.ps2InBalance.get(),
-                parameters.psBalance.get()
-            );
             psContainer[channel].setPs1Parameters(
                 parameters.ps1GrainSize.get(),
                 parameters.ps1PitchShift.get(),
@@ -138,18 +133,6 @@ void Graindr_PitchAudioProcessor::processBlock (AudioBuffer<float>& buffer, Midi
                 parameters.ps1ShimmerHiCut.get(),
                 static_cast<PlaybackDirection>(parameters.ps1PlaybackDir.getIndex()),
                 static_cast<ToneType>(parameters.ps1ToneType.getIndex())
-            );
-            psContainer[channel].setPs2Parameters(
-                parameters.ps2GrainSize.get(),
-                parameters.ps2PitchShift.get(),
-                parameters.ps2FineTune.get(),
-                parameters.ps2Texture.get(),
-                parameters.ps2Strech.get(),
-                parameters.ps2Feedback.get(),
-                parameters.ps2Shimmer.get(),
-                parameters.ps2ShimmerHiCut.get(),
-                static_cast<PlaybackDirection>(parameters.ps2PlaybackDir.getIndex()),
-                static_cast<ToneType>(parameters.ps2ToneType.getIndex())
             );
             psContainer[channel].setModParams(parameters.psModFreq.get(), parameters.psModDepth.get(), static_cast<FastMathLFO::LFOWave>(parameters.psModWave.getIndex()), channel == 0 ? 0.0f : parameters.psModStereoPhase.get()
             );
